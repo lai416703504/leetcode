@@ -9,7 +9,7 @@
  * 自动生成README文件
  * Class Directories
  */
-class Directories
+class Summary
 {
     /**
      * @var false|resource
@@ -23,10 +23,10 @@ class Directories
 
     public function __construct($rootDir)
     {
-        $this->readme = fopen($rootDir . '/README.md', 'w+');
-        fwrite($this->readme, "# LeetCode\n");
-        fwrite($this->readme, "Original.php 为题目初始代码\n");
-        fwrite($this->readme, "## [目录](./)\n");
+        $this->readme = fopen($rootDir . '/SUMMARY.md', 'w+');
+//        fwrite($this->readme, "# LeetCode\n");
+//        fwrite($this->readme, "Original.php 为题目初始代码\n");
+        fwrite($this->readme, "# [目录](./SUMMARY.md)\n");
 
 
         $this->rootDir = $rootDir;
@@ -79,8 +79,8 @@ class Directories
 
 
 $rootDir = '.';
-$class   = new Directories($rootDir);
-$class->gen();
+$summary   = new Summary($rootDir);
+$summary->gen();
 
 //$map = [
 //    'Interview' => '面试题',
