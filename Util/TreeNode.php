@@ -33,12 +33,12 @@ function create(array $arr)
     $queue->enqueue($node);
     while (!$queue->isEmpty()) {
         $node = $queue->dequeue();
-        if ($val = array_shift($arr)) {
+        if (null!==($val = array_shift($arr))) {
             $node->left = new TreeNode($val);
             $queue->enqueue($node->left);
         }
 
-        if ($val = array_shift($arr)) {
+        if (null!==($val = array_shift($arr))) {
             $node->right = new TreeNode($val);
             $queue->enqueue($node->right);
         }
