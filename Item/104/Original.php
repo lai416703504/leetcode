@@ -2,10 +2,8 @@
 /**
  * author:lhj
  * email:416703504@qq.com
- * create: 2020/3/10 10:32
+ * create: 2020/3/10 14:49
  **/
-
-include "../../Util/TreeNode.php";
 
 /**
  * Definition for a binary tree node.
@@ -16,14 +14,17 @@ include "../../Util/TreeNode.php";
  *     function __construct($value) { $this->val = $value; }
  * }
  */
+
+include '../../Util/TreeNode.php';
+
 class Solution
 {
 
     /**
      * @param TreeNode $root
-     * @return Integer[]
+     * @return Integer
      */
-    function inorderTraversal($root)
+    function maxDepth($root)
     {
 
     }

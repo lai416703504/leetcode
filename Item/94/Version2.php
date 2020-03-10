@@ -5,7 +5,7 @@
  * create: 2020/3/10 10:32
  **/
 
-include "../../TreeNode.php";
+include "../../Util/TreeNode.php";
 
 /**
  * Definition for a binary tree node.
