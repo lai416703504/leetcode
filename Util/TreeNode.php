@@ -6,11 +6,22 @@
  **/
 
 
-class TreeNode {
-     public $val = null;
-     public $left = null;
-     public $right = null;
-     function __construct($value) { $this->val = $value; }
+class TreeNode
+{
+    public $val = null;
+    /**
+     * @var null|TreeNode $left
+     */
+    public $left = null;
+    /**
+     * @var null|TreeNode $right
+     */
+    public $right = null;
+
+    function __construct($value)
+    {
+        $this->val = $value;
+    }
 }
 
 //广度优先插入
