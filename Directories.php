@@ -23,7 +23,7 @@ class Directories
 
     public function __construct($rootDir)
     {
-        $this->readme = fopen($rootDir . '/README1.md', 'w+');
+        $this->readme = fopen($rootDir . '/README.md', 'w+');
         fwrite($this->readme, "# LeetCode\n");
         fwrite($this->readme, "Original.php 为题目初始代码\n");
         fwrite($this->readme, "## [目录](./)\n");
