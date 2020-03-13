@@ -23,12 +23,10 @@ class Summary
 
     public function __construct($rootDir)
     {
-        $this->readme = new SplFileObject($rootDir . '/SUMMARY.md', 'w+');
-//        $this->readme = fopen($rootDir . '/SUMMARY.md', 'w+');
+        $this->readme = fopen($rootDir . '/SUMMARY.md', 'w+');
 //        fwrite($this->readme, "# LeetCode\n");
 //        fwrite($this->readme, "Original.php 为题目初始代码\n");
-        $this->readme->fwrite("# [目录](./SUMMARY.md)\n");
-//        fwrite($this->readme, );
+        fwrite($this->readme, "# [目录](./SUMMARY.md)\n");
 
 
         $this->rootDir = $rootDir;
@@ -36,8 +34,7 @@ class Summary
 
     public function __destruct()
     {
-//        fclose($this->readme);
-        unset($this->readme);
+        fclose($this->readme);
     }
 
     public function gen()
@@ -61,32 +58,29 @@ class Summary
         $dirArr = scandir($dir);
         sort($dirArr, SORT_NUMERIC);
         if (in_array('README.md', $dirArr)) {
-            $handle = new SplFileObject($dir . '/README.md', 'r');
-            $str    = $handle->fgets();
-//            $str    = mb_convert_encoding(fgets($handle), 'UTF-8');
-            $str = trim($str, "#\t\n\r\0\x0B");
-            $this->readme->fwrite("{$code} - [{$str}]({$dir})\n");
-//            fwrite($this->readme, "{$code} - [{$str}]({$dir})\n");
+            $handle = fopen($dir . '/README.md', 'r');
+            $str    = mb_convert_encoding(fgets($handle), 'UTF-8');
+            $str    = trim($str, "#\t\n\r\0\x0B");
+            fwrite($this->readme, "{$code} - [{$str}]({$dir})\n");
             if (!$handle) {
-//                fclose($handle);
-                unset($handle);
+                fclose($handle);
             }
         }
 
         foreach ($dirArr as $file) {
             if (
                 substr($file, 0, 1) != '.' //上级目录 本级目录 隐藏目录均不显示
-                && is_dir($dir . '/' . $file)
-            ) {
+                && is_dir($dir . '/' . $file)) {
                 $this->tree($dir . '/' . $file, $code . "\t");
             }
         }
     }
 }
 
+
 $start = microtime(true);
 $rootDir = '.';
-$summary = new Summary面向过程($rootDir);
+$summary = new Summary($rootDir);
 $summary->gen();
 $end = microtime(true);
 echo ($end-$start);
