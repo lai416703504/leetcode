@@ -1,5 +1,6 @@
 # [目录](./SUMMARY.md)
  - [ 面试题合集](./Interview)
+	 - [ 面试题 01.06. 字符串压缩](./Interview/compress-string)
 	 - [ 面试题57 - II. 和为s的连续正数序列](./Interview/find-continuous-sequence)
 	 - [ 面试题 10.01. 合并排序的数组](./Interview/sorted-merge-lcci)
  - [ leetcode 题库](./Item)
@@ -24,4 +25,5 @@
 	 - [ 1013. 将数组分成和相等的三个部分](./Item/1013)
 	 - [ 1071. 字符串的最大公因子](./Item/1071)
 	 - [ 1103. 分糖果 II](./Item/1103)
+	 - [ 1160. 拼写单词](./Item/1160)
  - [ 辅助类](./Util)

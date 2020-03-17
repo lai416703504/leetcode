@@ -86,7 +86,7 @@ class Summary
 
 $start = microtime(true);
 $rootDir = '.';
-$summary = new Summary面向过程($rootDir);
+$summary = new Summary($rootDir);
 $summary->gen();
 $end = microtime(true);
 echo ($end-$start);
